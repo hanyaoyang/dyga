@@ -1,0 +1,50 @@
+server:
+  port: 8767
+
+spring:
+  application:
+    name: config-client
+#    name: service-hi
+  zipbin:
+      base-url: http://localhost:9411
+  cloud:
+    config:
+      label: master
+      profile: dev
+#      uri: http://localhost:8888/ 配置中心
+      discovery:
+        enabled: true
+        service-id: config-server
+  boot:
+      admin:
+        client:
+          url: http://localhost:8899
+
+  security:
+    user:
+      name: "client"
+      password: "client"
+
+eureka:
+  client:
+    registryFetchIntervalSeconds: 5
+    serviceUrl:
+      defaultZone: http://peer2:8769/eureka/
+#      defaultZone: http://localhost:8761/eureka/
+  instance:
+      leaseRenewalIntervalInSeconds: 10
+      health-check-url-path: /actuator/health
+
+#hystrix-dashboard监控配置
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      cors:
+        allowed-origins: "*"
+        allowed-methods: "*"
+      endpoint:
+          health:
+            show-details: ALWAYS
+

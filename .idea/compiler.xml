@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="config-server" />
+        <module name="dyga_card_a_dao" />
+        <module name="dyga_card_a_provider" />
+        <module name="dyga_card_a_service" />
+        <module name="dyga_card_b_app" />
+        <module name="dyga_card_b_service" />
+        <module name="dyga_common" />
+        <module name="eureka_client" />
+        <module name="eureka_server" />
+        <module name="service_ribbon" />
+        <module name="springboot_admin" />
+        <module name="turbine" />
+        <module name="zool" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="dyga_card_provider" target="1.8" />
+      <module name="dyga_card_service" target="1.8" />
+      <module name="serviceribbon" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

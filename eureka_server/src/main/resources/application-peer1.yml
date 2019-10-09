@@ -1,0 +1,31 @@
+server:
+  port: 8761
+
+spring:
+  profiles: peer1
+eureka:
+  instance:
+    hostname: peer1
+  server:
+      enable-self-preservation: false			# 设为false，关闭自我保护
+      eviction-interval-timer-in-ms: 4000    # 清理间隔（单位毫秒，默认是60*1000）
+      delta-retention-timer-interval-in-ms: 30000 # 清理无效增量信息的时间间隔（ms）
+      response-cache-update-interval-ms: 20 # 注册信息缓存更新间隔（s）
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    registry-fetch-interval-seconds: 20  # 获取注册信息的频率
+    eureka-server-read-timeout-seconds: 10 # 读取Eureka Server 超时时间（s）
+    eureka-server-connect-timeout-seconds: 10 # 连接eureka超时时间
+    heartbeat-executor-thread-pool-size: 3 # 心跳保持线程池初始化线程数
+    heartbeat-executor-exponential-back-off-bound: 20 # 心跳超时重试延迟时间的最大乘数值
+    serviceUrl:
+      defaultZone: http://peer2:8769/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
